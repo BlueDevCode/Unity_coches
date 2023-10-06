@@ -7,7 +7,7 @@ public class PlayerController : MonoBehaviour
 
     //Propiedades
     
-    [ Range (0,20), [SerializeField] private ] private float speed = 5f;
+    [ Range (0,20), SerializeField]  private float speed = 5f;
 
 
     // Start is called before the first frame update
