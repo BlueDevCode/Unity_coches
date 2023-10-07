@@ -8,6 +8,9 @@ public class PlayerController : MonoBehaviour
     //Propiedades
     
     [ Range (0,20), SerializeField]  private float speed = 5f;
+    public float turnSpeed = 5f;
+
+    public float horizontalInput;
 
 
     // Start is called before the first frame update
@@ -20,6 +23,9 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        horizontalInput = Input.GetAxis("Horizontal");
+
         this.transform.Translate(speed* Time.deltaTime*Vector3.forward);
+        this.transform.Translate(turnSpeed* Time.deltaTime*Vector3.right*horizontalInput);
     }
 }
