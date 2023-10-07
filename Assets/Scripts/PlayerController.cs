@@ -4,15 +4,14 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    //Claudia Cadec
 
     //Propiedades
     
     [ Range (0,20), SerializeField] 
      private float speed = 10f;
 
-     [Range(0,20), SerializeField,Tooltip ("Velocidad lineal máxima del coche") ]
-    private float turnSpeed = 10f;
+     [Range(0,90), SerializeField,Tooltip ("Velocidad lineal máxima del coche") ]
+    private float turnSpeed = 45f;
 
     private float horizontalInput, verticalInput;
 
@@ -31,7 +30,7 @@ public class PlayerController : MonoBehaviour
         verticalInput= Input.GetAxis ("Vertical");
 
         this.transform.Translate(speed* Time.deltaTime*Vector3.forward* verticalInput);
-        this.transform.Translate(turnSpeed* Time.deltaTime*Vector3.right*horizontalInput);
+        this.transform.Rotate(turnSpeed* Time.deltaTime*Vector3.up*horizontalInput);
 
     }
 }
